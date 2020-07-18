@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+    mysql:
+        image: mysql:5.6
+        container_name: mysql
+        restart: unless-stopped
+        tty: true
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: 123456
+        volumes:
+            - D:\~temp\docker-compose\mysql\mysql-data:/var/lib/mysql
+        networks:
+            - mysql-network
+            
+networks:
+    mysql-network:
+        external: true

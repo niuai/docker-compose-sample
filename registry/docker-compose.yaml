@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+    registry:
+        image: registry
+        container_name: registry
+        restart: always
+        tty: true
+        ports:
+            - "5000:5000"
+        volumes:
+            - D:\~temp\docker-compose\registry\registry:/var/lib/registry
+        networks:
+            - registry-network
+
+networks:
+    registry-network:
+        external: true
