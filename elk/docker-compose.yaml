@@ -9,8 +9,8 @@ services:
         networks:
             - internal-network
         volumes:
-            - D:\~temp\docker-compose\elk\nginx\nginx.conf:/etc/nginx/nginx.conf
-            - D:\~temp\docker-compose\elk\nginx\conf.d:/etc/nginx/conf.d
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ./nginx/conf.d:/etc/nginx/conf.d
         restart: unless-stopped
     elk:
         image: sebp/elk
@@ -23,7 +23,7 @@ services:
         networks:
             - internal-network
         volumes:
-            - D:\~temp\docker-compose\elk\elk-data:/var/lib/elasticsearch
+            - ./data:/var/lib/elasticsearch
         depends_on:
             - nginx
         restart: unless-stopped

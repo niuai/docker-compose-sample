@@ -10,7 +10,7 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: 123456
         volumes:
-            - D:\~temp\docker-compose\mysql\mysql-data:/var/lib/mysql
+            - ./data:/var/lib/mysql
         networks:
             - mysql-network
             
