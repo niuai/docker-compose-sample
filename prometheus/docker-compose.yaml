@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+    prometheus:
+        image: prom/prometheus
+        container_name: prometheus
+        restart: unless-stopped
+        tty: true
+        ports:
+            - "9090:9090"
+        volumes:
+            - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+            - ./config/rules.yml:/etc/prometheus/rules.yml
+        networks:
+            - internal-network
+    node-exporter:
+        image: prom/node-exporter
+        container_name: node-exporter
+        restart: unless-stopped
+        tty: true
+        ports:
+            - "9100:9100"
+        networks:
+            - internal-network
+            
+networks:
+    internal-network:
+        external: true
