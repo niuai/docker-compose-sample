@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   skywalking-server:
-    image: apache/skywalking-oap-server:7.0.0-es6
+    image: apache/skywalking-oap-server
     container_name: skywalking-server
     restart: unless-stopped
     tty: true
