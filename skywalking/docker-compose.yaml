@@ -6,7 +6,6 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "1234:1234"
       - "11800:11800"
       - "12800:12800"
     networks:
