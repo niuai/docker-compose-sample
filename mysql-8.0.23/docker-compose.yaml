@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+    mysql-8023:
+        image: mysql:8.0.23
+        container_name: mysql-8023
+        restart: unless-stopped
+        tty: true
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: 123456
+        volumes:
+            - ./data:/var/lib/mysql
+        networks:
+            - mysql-network
+            
+networks:
+    mysql-network:
+        external: true
