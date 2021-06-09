@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "7905:2181"
+    networks:
+      - kafka-network
+  kafka:
+    image: wurstmeister/kafka
+    ports:
+      - "7906:9092"
+    hostname: kafka
+    environment:
+      KAFKA_CREATE_TOPICS: "test:1:1"
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_PORT: 9092
+    networks:
+      - kafka-network
+    depends_on:
+      - zookeeper
+
+networks:
+  kafka-network:
+      external: true
