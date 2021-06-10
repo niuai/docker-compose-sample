@@ -9,9 +9,3 @@ services:
             - "5000:5000"
         volumes:
             - ./data:/var/lib/registry
-        networks:
-            - registry-network
-
-networks:
-    registry-network:
-        external: true

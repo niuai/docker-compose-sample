@@ -9,9 +9,3 @@ services:
             - "8065:8065"
         extra_hosts:
             dockerhost: 127.0.0.1
-        networks:
-            - mattermost-network
-            
-networks:
-    mattermost-network:
-        external: true

@@ -11,9 +11,3 @@ services:
             MYSQL_ROOT_PASSWORD: 123456
         volumes:
             - ./data:/var/lib/mysql
-        networks:
-            - mysql-network
-            
-networks:
-    mysql-network:
-        external: true
