@@ -1,0 +1,6 @@
+version: '3.7'
+services:
+  grok:
+    image: epurs/grokdebugger
+    ports:
+      - 80:80
